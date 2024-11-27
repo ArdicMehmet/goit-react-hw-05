@@ -1,7 +1,15 @@
 import React from "react";
+import Navigation from "../../components/Navigation";
 
 const MoviesPage = () => {
-  return <div>MoviesPage</div>;
+  return (
+    <>
+      <header>
+        <Navigation />
+      </header>
+      Movies Page
+    </>
+  );
 };
 
 export default MoviesPage;

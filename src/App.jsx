@@ -1,15 +1,21 @@
 import "./App.css";
+import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router";
-import HomePage from "./pages/HomePage";
-import MoviesPage from "./pages/MoviesPage";
-import NotFoundPage from "./pages/NotFountPage";
+const HomePage = lazy(() => import("./pages/HomePage"));
+const MoviesPage = lazy(() => import("./pages/MoviesPage"));
+const MovieDetailsPage = lazy(() => import("./pages/MovieDetailsPage"));
+const NotFoundPage = lazy(() => import("./pages/NotFountPage"));
+
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/movies" element={<MoviesPage />} />
-      <Route path="*" element={<NotFoundPage />} />
-    </Routes>
+    <Suspense fallback={<div className="spinner">Yükleniyor...</div>}>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/movies" element={<MoviesPage />} />
+        <Route path="/movies/:movieId" element={<MovieDetailsPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </Suspense>
   );
 }
 

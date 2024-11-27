@@ -1,0 +1,71 @@
+/* navigation.module.css */
+
+/* Genel stil */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    background: #ffffff; /* Açık tema için beyaz arka plan */
+    padding: 15px 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+    border: 1px solid #e0e0e0; /* İnce bir çerçeve */
+  }
+  
+  /* Bağlantıların temel stili */
+  .link {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333333; /* Açık temada koyu yazı */
+    padding: 8px 12px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  /* Hover durumu */
+  .link:hover {
+    color: #0077ff; /* Modern mavi vurgu rengi */
+  }
+  
+  .link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #0077ff;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+  }
+  
+  .link:hover::after {
+    width: 100%;
+  }
+  
+  /* Aktif bağlantı */
+  .active {
+    color: #0077ff;
+    font-weight: 600;
+  }
+  
+  .active::after {
+    width: 100%;
+    background: #0077ff;
+  }
+  
+  /* Responsive tasarım */
+  @media (max-width: 768px) {
+    nav {
+      flex-direction: column;
+      align-items: center;
+      padding: 10px;
+    }
+  
+    .link {
+      font-size: 14px;
+      padding: 6px 10px;
+    }
+  }
+  
