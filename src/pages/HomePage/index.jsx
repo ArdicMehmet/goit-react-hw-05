@@ -1,12 +1,15 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { getTrendingMovies } from "../../api/movieService";
 import Loader from "../../components/Loader";
+import { NavLink, useLocation } from "react-router-dom";
 
 const HomePage = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const showTrending = useMemo(() =>
-    trendingMovies.length > 0 ? true : false
+  const location = useLocation();
+  const showTrending = useMemo(
+    () => (trendingMovies.length > 0 ? true : false),
+    [trendingMovies]
   );
 
   useEffect(() => {
@@ -18,6 +21,7 @@ const HomePage = () => {
   }, []);
   return (
     <>
+      <NavLink to={location.state}>Geri Dön</NavLink>
       {isLoading && <Loader text="Filmler yükleniyor..." />}
       {showTrending && JSON.stringify(trendingMovies)}
     </>
