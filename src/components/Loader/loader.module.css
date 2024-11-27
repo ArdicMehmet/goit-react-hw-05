@@ -1,0 +1,22 @@
+.spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Spinner'ı ekranın tamamına hizalamak için */
+  }
+  
+  .spinner::after {
+    content: "";
+    width: 50px;
+    height: 50px;
+    border: 5px solid #ddd; /* Dış halka */
+    border-top-color: #3498db; /* Dönen halka */
+    border-radius: 50%; /* Daire şekli */
+    animation: spin 1s linear infinite; /* Döndürme animasyonu */
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
