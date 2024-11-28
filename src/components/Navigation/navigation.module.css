@@ -25,7 +25,8 @@ nav {
   
   /* Hover durumu */
   .link:hover {
-    color: #0077ff; /* Modern mavi vurgu rengi */
+    color: white; /* Modern mavi vurgu rengi */
+
   }
   
   .link::after {

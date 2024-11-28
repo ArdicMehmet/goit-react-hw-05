@@ -1,0 +1,47 @@
+/* Genel stil ayarları */
+ul {
+    list-style-type: none; /* Noktaları kaldırır */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Esnek kutu düzeni */
+    flex-wrap: wrap; /* Listeyi birden çok satıra böler */
+    gap: 15px; /* Liste elemanları arasındaki boşluk */
+  }
+  
+  /* Liste elemanları */
+  li {
+    background-color: #f5f5f5; /* Hafif gri arka plan */
+    border: 2px solid #ddd; /* İnce kenarlık */
+    border-radius: 8px; /* Köşeleri yuvarlar */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+    transition: transform 0.2s, box-shadow 0.2s; /* Hover animasyonu */
+  }
+  
+  li:hover {
+    transform: scale(1.05); /* Hafif büyütme efekti */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Daha belirgin gölge */
+  }
+  
+  /* NavLink stili */
+  a {
+    display: block; /* Tam tıklanabilir alan */
+    text-decoration: none; /* Alt çizgiyi kaldırır */
+    padding: 10px 15px;
+    font-size: 1rem; /* Metin boyutu */
+    font-weight: bold; /* Kalın yazı */
+    color: #333; /* Nötr metin rengi */
+    text-align: center; /* Metni ortalar */
+    border-radius: 8px; /* İç köşeleri yuvarlar */
+  }
+  
+  /* NavLink aktif ve hover durumu */
+  a:hover {
+    color: #fff; /* Metin rengi beyaz */
+    background-color: #007bff; /* Mavi arka plan */
+  }
+  
+  a.active {
+    background-color: #0056b3; /* Daha koyu mavi */
+    color: #fff;
+  }
+  

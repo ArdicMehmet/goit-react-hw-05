@@ -1,0 +1,132 @@
+/* Genel sayfa düzeni */
+.movieDetails {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: "Arial", sans-serif;
+    color: #333;
+  }
+  
+  /* Geri dön düğmesi */
+  .backButton {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    color: #007bff;
+    text-decoration: none;
+    background-color: #f8f9fa;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .backButton:hover {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  /* Sayfa başlığı */
+  .movieTitle {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+  
+  /* Film içeriği düzeni */
+  .movieContent {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  
+  /* Poster stili */
+  .moviePoster {
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Film bilgisi */
+  .movieInfo {
+    flex: 1;
+  }
+  
+  /* Film adı */
+  .movieName {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+  
+  /* Ortalama oy */
+  .movieVote {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  
+  /* Film açıklaması */
+  .movieOverview h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .movieOverview p {
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  
+  /* Türler listesi */
+  .movieGenres h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .genreList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .genreItem {
+    background-color: #f1f1f1;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+  }
+  .additionalInformation{
+    margin-top: 60px;
+  }
+  .additionalInformation h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .infoList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .infoLink {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+  }
+  
+  .infoLink:hover {
+    color: #0056b3;
+  }
+  
+  .activeLink {
+    color: #0056b3;
+    text-decoration: underline;
+  }
+  
+  /* Outlet bölgesi */
+  .outletContainer {
+    margin-top: 30px;
+    padding: 20px;
+    border-top: 1px solid #ddd;
+  }
+  

@@ -1,0 +1,26 @@
+/* Ana sayfa için temel stil */
+main {
+    max-width: 1200px; /* İçeriği daraltmak için genişlik sınırı */
+    margin: 0 auto; /* Ortalamak için */
+    padding: 20px;
+    font-family: "Arial", sans-serif;
+    color: #333; /* Nötr metin rengi */
+  }
+  
+  /* Başlık stili */
+  h1 {
+    font-size: 2rem;
+    text-align: center;
+    color: #007bff; /* Trendy mavi renk */
+    margin-bottom: 20px;
+  }
+  
+  /* Loader bileşeni */
+  .loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px; /* Yüklenme durumu için alan */
+    font-size: 1.2rem;
+    color: #555; /* Hafif nötr ton */
+  }
