@@ -11,13 +11,10 @@ const MovieDetailsPage = () => {
   const { movieId } = useParams();
   useEffect(() => {
     setBackLink(location.state ? location.state : "/");
-    console.log("Details Location: ", location);
   }, []);
   useEffect(() => {
     (async () => {
       const data = await getMoviesById(movieId);
-      console.log(data);
-
       setMovie(data);
     })();
   }, [movieId]);

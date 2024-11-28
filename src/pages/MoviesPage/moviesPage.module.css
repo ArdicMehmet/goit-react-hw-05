@@ -27,7 +27,7 @@
     display: flex;
     gap: 10px;
     max-width: 400px;
-    margin: 0 auto;
+    margin: 0 auto 40px auto;
     padding: 10px;
     background-color: #f9f9f9;
     border-radius: 5px;
