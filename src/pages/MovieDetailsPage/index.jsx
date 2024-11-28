@@ -15,6 +15,8 @@ const MovieDetailsPage = () => {
   useEffect(() => {
     (async () => {
       const data = await getMoviesById(movieId);
+      console.log(data);
+
       setMovie(data);
     })();
   }, [movieId]);
@@ -65,7 +67,11 @@ const MovieDetailsPage = () => {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to={"reviews"} className={styles.infoLink}>
+                  <NavLink
+                    to={"reviews"}
+                    state={movie.id ? movie.id : null}
+                    className={styles.infoLink}
+                  >
                     Reviews
                   </NavLink>
                 </li>

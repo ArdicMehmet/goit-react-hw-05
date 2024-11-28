@@ -33,3 +33,14 @@ export const getCreditsById = async (movie_id) => {
     }
 };
 
+export const getReviewsById = async (movie_id) => {
+  const creditsURL = `/movie/${movie_id}/reviews?language=en-US&page=1`
+  
+    try {
+      const response = await axiosInstance.get(creditsURL);
+      return response.data ? response.data : []; 
+    } catch (error) {
+      console.error("Error fetching trending movies:", error);
+      return [];
+    }
+};
