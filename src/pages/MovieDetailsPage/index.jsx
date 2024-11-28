@@ -11,6 +11,7 @@ const MovieDetailsPage = () => {
   const { movieId } = useParams();
   useEffect(() => {
     setBackLink(location.state ? location.state : "/");
+    console.log("Details Location: ", location);
   }, []);
   useEffect(() => {
     (async () => {

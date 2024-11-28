@@ -44,3 +44,14 @@ export const getReviewsById = async (movie_id) => {
       return [];
     }
 };
+
+export const getSearchByText = async (text) => {
+  const creditsURL = `/search/movie?query=${text}&include_adult=false&language=en-US&page=1`
+    try {
+      const response = await axiosInstance.get(creditsURL);
+      return response.data ? response.data : []; 
+    } catch (error) {
+      console.error("Error fetching trending movies:", error);
+      return [];
+    }
+};
