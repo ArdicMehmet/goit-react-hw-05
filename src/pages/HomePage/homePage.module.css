@@ -1,5 +1,5 @@
 /* Ana sayfa için temel stil */
-main {
+.container {
     max-width: 1200px; /* İçeriği daraltmak için genişlik sınırı */
     margin: 0 auto; /* Ortalamak için */
     padding: 20px;
@@ -8,7 +8,7 @@ main {
   }
   
   /* Başlık stili */
-  h1 {
+  .title {
     font-size: 2rem;
     text-align: center;
     color: #007bff; /* Trendy mavi renk */

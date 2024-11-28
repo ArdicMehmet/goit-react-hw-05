@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
-import "./homePage.module.css";
+import styles from "./homePage.module.css";
 import { getTrendingMovies } from "../../api/movieService";
 import Loader from "../../components/Loader";
 import MovieList from "../../components/MovieList";
@@ -21,8 +21,8 @@ const HomePage = () => {
   }, []);
   return (
     <>
-      <main>
-        <h1>Trending Movies</h1>
+      <main className={styles.container}>
+        <h1 className={styles.title}>Trending Movies</h1>
         {isLoading && <Loader text="Filmler yükleniyor..." />}
         {showTrending && <MovieList movies={trendingMovies} />}
       </main>
