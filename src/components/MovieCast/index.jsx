@@ -1,21 +1,21 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { baseImageURL, getCreditsById } from "../../api/movieService";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import styles from "./movieCast.module.css"; // CSS modülünü import ediyoruz
 
 const MovieCast = () => {
   const [cast, setCast] = useState([]);
+  const params = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const showCast = useMemo(() => (cast.length > 0 ? true : false), [cast]);
-  const location = useLocation();
 
   useEffect(() => {
     (async () => {
-      const data = await getCreditsById(location.state);
+      const data = await getCreditsById(params.movieId);
       setCast(data.cast ? data.cast : []);
       setIsLoading(false);
     })();
-  }, [location.state]);
+  }, []);
 
   return (
     <div className={styles.castContainer}>

@@ -14,9 +14,17 @@ const MoviesPage = () => {
   const [searchText, setSearchText] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
-
   useEffect(() => {
-    setBackLink(location.state ? location.state : "/");
+    if (location.state) {
+      setBackLink(location.state.from ? location.state.from : "/");
+      setSearchText(location.state.query || "");
+      searchText ? navigate(`?query=${encodeURIComponent(searchText)}`) : "";
+    } else {
+      setBackLink("/");
+    }
+  }, []);
+  useEffect(() => {
+    // setBackLink(location.state.from ? location.state.from : "/");
     const params = new URLSearchParams(location.search);
     const query = params.get("query");
     if (query) {
@@ -26,8 +34,12 @@ const MoviesPage = () => {
   }, [location.search]);
 
   const fetchMovies = async (query) => {
-    const response = await getSearchByText(query);
-    response ? setMovies(response.results) : setMovies([]);
+    try {
+      const response = await getSearchByText(query);
+      response ? setMovies(response.results) : setMovies([]);
+    } catch (e) {
+      setMovies([]);
+    }
   };
 
   const handleClick = () => {

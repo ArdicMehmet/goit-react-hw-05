@@ -1,21 +1,19 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { getReviewsById } from "../../api/movieService";
 import styles from "./movieReviews.module.css";
 
 const MovieReviews = () => {
   const [reviews, setReviews] = useState([]);
+  const params = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const showReviews = useMemo(
     () => (reviews.length > 0 ? true : false),
     [reviews]
   );
-  const location = useLocation();
   useEffect(() => {
     (async () => {
-      const response = await getReviewsById(
-        location.state ? location.state : ""
-      );
+      const response = await getReviewsById(params.movieId);
       response ? setReviews(response.results) : "";
       setIsLoading(false);
     })();

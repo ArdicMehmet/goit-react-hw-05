@@ -1,23 +1,38 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { NavLink, Outlet, useLocation, useParams } from "react-router-dom";
 import { baseImageURL, getMoviesById } from "../../api/movieService";
 import styles from "./movieDetailsPage.module.css";
 
 const MovieDetailsPage = () => {
   const [movie, setMovie] = useState(null);
+  const [backLink, setBackLink] = useState("/");
+  const initialLocationState = useRef(null);
   const showMovie = useMemo(() => (movie ? true : false), [movie]);
+  // const [searchParams, setSearchParams] = useSearchParams();
   const location = useLocation();
-  const [backLink, setBackLink] = useState(null);
   const { movieId } = useParams();
   useEffect(() => {
-    setBackLink(location.state ? location.state : "/");
-  }, []);
-  useEffect(() => {
+    // if (!initialLocationState.current) {
+    //   initialLocationState.current = location.state; // Sadece ilk değer
+    // }
+    !initialLocationState.current
+      ? (initialLocationState.current = location.state)
+      : "";
+    const state = initialLocationState.current;
+    if (state?.from == "/movies") {
+      const query = location.state.query || "";
+      setBackLink(state.from || "/");
+      if (query) {
+        setBackLink((prev) => prev + `?query=${encodeURIComponent(query)}`);
+      }
+    } else {
+      setBackLink(state?.from || "/");
+    }
     (async () => {
       const data = await getMoviesById(movieId);
       setMovie(data);
     })();
-  }, [movieId]);
+  }, []);
 
   return (
     <div className={styles.movieDetails}>
