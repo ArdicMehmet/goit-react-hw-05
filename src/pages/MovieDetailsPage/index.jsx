@@ -1,5 +1,11 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { NavLink, Outlet, useLocation, useParams } from "react-router-dom";
+import {
+  NavLink,
+  Outlet,
+  useLocation,
+  useNavigate,
+  useParams,
+} from "react-router-dom";
 import { baseImageURL, getMoviesById } from "../../api/movieService";
 import styles from "./movieDetailsPage.module.css";
 
@@ -11,6 +17,7 @@ const MovieDetailsPage = () => {
   // const [searchParams, setSearchParams] = useSearchParams();
   const location = useLocation();
   const { movieId } = useParams();
+  const navigate = useNavigate();
   useEffect(() => {
     // if (!initialLocationState.current) {
     //   initialLocationState.current = location.state; // Sadece ilk değer
@@ -36,9 +43,9 @@ const MovieDetailsPage = () => {
 
   return (
     <div className={styles.movieDetails}>
-      <NavLink to={backLink} className={styles.backButton}>
+      <button onClick={(_) => navigate(-1)} className={styles.backButton}>
         Geri Dön
-      </NavLink>
+      </button>
       <h1 className={styles.movieTitle}>Movie Details Page</h1>
       {showMovie && (
         <section className={styles.movieContent}>
